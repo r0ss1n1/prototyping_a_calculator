@@ -108,16 +108,13 @@ int main(void) {
 		} else if (calculation[i] == 0x20) {
 			++i;
 		} else if (isdigit(calculation[i])) {
-			/* printf("%d ",(int) calculation[i]); */
-			if (calculation[i+2] == '+') {
-				printf("sum is %d\n", (int) calculation[i] + (int) calculation[i+4]);
-			} else if (calculation[i+2] == '-') {
-				printf("difference is %d\n",(int) calculation[i] - (int) calculation[i+4]);
-			} else if (calculation[i+2] == '/') {
-				printf("quotient is %d\n", (int) calculation[i] / (int) calculation[i+4]);
-			} else if (calculation[i+2] == '*') {
-				printf("product is %d\n", (int) calculation[i] * (int) calculation[i+4]);
-			}
+			printf("%d ", (int) calculation[i] - '0');
+			++i;
+		} else if (isdigit(calculation[i]) && isdigit(calculation[i+1])) {
+			char * digit;
+			strcpy(calculation[i], digit);
+			strcpy(calculation[i+1], digit);
+			printf("%d ", (int) digit - '0');
 			++i;
 		}
 	}
